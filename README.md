@@ -2,8 +2,8 @@
 # Beaglebone-PRU-RPMsg-HelloWorld
 Exchange messages between PRU (Programmable Real-Time Unit) and Linux System using RemoteProc and RPMsg
 
-This project runs on: Linux beaglebone 4.4.91-ti-r133 #1 SMP Tue Oct 10 05:18:08 UTC 2017 armv7l GNU/Linux  
-Also tested on Debian Buster: Linux version 4.19.94-ti-r42 (voodoo@x3-am57xx-beagle-x15-2gb) #1buster SMP PREEMPT Tue Mar 31 19:38:29 UTC 2020
+This project runs on: *Linux beaglebone 4.4.91-ti-r133 #1 SMP Tue Oct 10 05:18:08 UTC 2017 armv7l GNU/Linux*
+Also tested on Debian Buster: *Linux version 4.19.94-ti-r42 #1buster SMP PREEMPT Tue Mar 31 19:38:29 UTC 2020*
 
 How to use:
 

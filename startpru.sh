@@ -1,10 +1,20 @@
 #!/bin/sh
-# FIXME Make sure that remoteproc0 and remoteproc1 are in fact the PRUs!
-# They seem to be on Debian Buster..
-sudo sh -c "echo start > /sys/class/remoteproc/remoteproc0/state"
-sudo sh -c "echo start > /sys/class/remoteproc/remoteproc1/state"
 
-echo -n "PRU0 status: "
-cat /sys/class/remoteproc/remoteproc0/state
-echo -n "PRU1 status: "
-cat /sys/class/remoteproc/remoteproc1/state
+# These udev rules create links to the PRUs so we don't confuse them with the M3 wakeup core.
+# /etc/udev/rules.d/86-remoteproc-noroot.rules
+PRU0=/dev/remoteproc/pruss-core0
+PRU1=/dev/remoteproc/pruss-core1
+#PRU0=/sys/class/remoteproc/remoteproc0
+#PRU1=/sys/class/remoteproc/remoteproc1
+
+if [ "$(cat $PRU0/state)" != "running" ]; then
+	sudo sh -c "echo start > $PRU0/state"
+fi
+if [ "$(cat $PRU1/state)" != "running" ]; then
+	sudo sh -c "echo start > $PRU1/state"
+fi
+
+echo -n "PRU0 ($PRU0) status: "
+cat $PRU0/state
+echo -n "PRU1 ($PRU1) status: "
+cat $PRU1/state
